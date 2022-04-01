@@ -7,70 +7,62 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-
 public class DateManager {
-    Calendar mCalendar;
+    Calendar calendar;
 
+    // Calendar 클래스 인스턴스 생성
     public DateManager(){
-        mCalendar = Calendar.getInstance();
+        calendar = Calendar.getInstance();
     }
 
     //Get the elements of the month
     public List<Date> getDays(){
         //Keep current state
-        Date startDate = mCalendar.getTime();
+        Date startDate = calendar.getTime();
 
         //Calculate the total number of squares to be displayed in GridView
         int count = getWeeks() * 7 ;
 
         //Calculate the number of days for the previous month displayed on the calendar for the current month
-        mCalendar.set(Calendar.DATE, 1);
-        int dayOfWeek = mCalendar.get(Calendar.DAY_OF_WEEK) - 1;
-        mCalendar.add(Calendar.DATE, -dayOfWeek);
+        calendar.set(Calendar.DATE, 1);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1; // 주 획득
+        calendar.add(Calendar.DATE, -dayOfWeek);
 
         List<Date> days = new ArrayList<>();
 
         for (int i = 0; i < count; i ++){
-            days.add(mCalendar.getTime());
-            mCalendar.add(Calendar.DATE, 1);
+            days.add(calendar.getTime());
+            calendar.add(Calendar.DATE, 1);
         }
-
         //Restore state
-        mCalendar.setTime(startDate);
+        calendar.setTime(startDate);
 
         return days;
     }
 
     //Check if it is this month
     public boolean isCurrentMonth(Date date){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM", Locale.US);
-        String currentMonth = format.format(mCalendar.getTime());
-        if (currentMonth.equals(format.format(date))){
+        SimpleDateFormat simpleform = new SimpleDateFormat("yyyy년 MM월", Locale.US);
+        String currentMonth = simpleform.format(calendar.getTime());
+        if (currentMonth.equals(simpleform.format(date))){
             return true;
         }else {
             return false;
         }
     }
 
-    //Get the number of weeks
+    //해당 월의 마지막 주 구하기
     public int getWeeks(){
-        return mCalendar.getActualMaximum(Calendar.WEEK_OF_MONTH);
+        return calendar.getActualMaximum(Calendar.WEEK_OF_MONTH);
     }
 
-    //Get the day of the week
-    public int getDayOfWeek(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DAY_OF_WEEK);
-    }
-
-    //To the next month
+    // 다음 달로 넘어가기 위해 현재 달에 +1
     public void nextMonth(){
-        mCalendar.add(Calendar.MONTH, 1);
+        calendar.add(Calendar.MONTH, 1);
     }
 
-    //To the previous month
+    // 이전 달로 넘어가기 위해 현재 달에 -1
     public void prevMonth(){
-        mCalendar.add(Calendar.MONTH, -1);
+        calendar.add(Calendar.MONTH, -1);
     }
 }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/grayColor"
-    tools:context=".MainActivity">
+    tools:context="com.hansung.android.androidproject1.MainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,29 +19,29 @@
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2022.4"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:text="2022년 3월"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/prevButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="이전"
             android:layout_alignParentLeft="true"
             android:layout_marginVertical="10dp"
             android:layout_marginLeft="10dp"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorAccent"
+            android:text="이전" />
 
         <Button
             android:id="@+id/nextButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="다음"
             android:layout_alignParentRight="true"
             android:layout_marginVertical="10dp"
             android:layout_marginRight="10dp"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorAccent"
+            android:text="다음" />
     </RelativeLayout>
 
     <LinearLayout
@@ -55,10 +55,10 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="1dp"
             android:layout_weight="1"
-            android:background="@color/greenColor"
+            android:background="#4DA84D"
             android:text="일"
             android:textAlignment="center"
-            android:textColor="@color/redColor" />
+            android:textColor="@color/blackColor" />
 
         <TextView
             android:layout_width="0dp"
@@ -67,59 +67,58 @@
             android:layout_weight="1"
             android:background="@color/greenColor"
             android:text="월"
-            android:textAlignment="center"
-            android:textColor="@color/blackColor" />
+            android:textColor="@color/blackColor"
+            android:textAlignment="center"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="@color/greenColor"
+            android:layout_marginRight="1dp"
+            android:textAlignment="center"
             android:text="화"
-            android:textAlignment="center"
-            android:textColor="@color/blackColor" />
+            android:textColor="@color/blackColor"
+            android:background="@color/greenColor"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="@color/greenColor"
+            android:layout_marginRight="1dp"
+            android:textAlignment="center"
             android:text="수"
-            android:textAlignment="center"
-            android:textColor="@color/blackColor" />
+            android:textColor="@color/blackColor"
+            android:background="@color/greenColor"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="@color/greenColor"
+            android:layout_marginRight="1dp"
+            android:textAlignment="center"
             android:text="목"
-            android:textAlignment="center"
-            android:textColor="@color/blackColor" />
+            android:textColor="@color/blackColor"
+            android:background="@color/greenColor"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="@color/greenColor"
+            android:layout_marginRight="1dp"
+            android:textAlignment="center"
             android:text="금"
-            android:textAlignment="center"
-            android:textColor="@color/blackColor" />
+            android:textColor="@color/blackColor"
+            android:background="@color/greenColor"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="1dp"
             android:layout_weight="1"
-            android:background="@color/greenColor"
-            android:text="토"
+            android:layout_marginRight="1dp"
             android:textAlignment="center"
-            android:textColor="@color/blueColor" />
-
+            android:text="토"
+            android:textColor="@color/blackColor"
+            android:background="@color/greenColor"/>
     </LinearLayout>
 
     <GridView

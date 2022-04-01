@@ -7,11 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -60,28 +60,12 @@ public class CalendarAdapter extends BaseAdapter {
         SimpleDateFormat dateFormat = new SimpleDateFormat("d", Locale.US);
         holder.dateText.setText(dateFormat.format(dateArray.get(position)));
 
-        //Gray out cells other than this month
+        //Black out cells other than this month
         if (mDateManager.isCurrentMonth(dateArray.get(position))){
             convertView.setBackgroundColor(Color.WHITE);
         }else {
-            convertView.setBackgroundColor(Color.LTGRAY);
+            convertView.setBackgroundColor(Color.BLACK);
         }
-
-        //Sunday to red, Saturday to blue
-        int colorId;
-        switch (mDateManager.getDayOfWeek(dateArray.get(position))){
-            case 1:
-                colorId = Color.RED;
-                break;
-            case 7:
-                colorId = Color.BLUE;
-                break;
-
-            default:
-                colorId = Color.BLACK;
-                break;
-        }
-        holder.dateText.setTextColor(colorId);
 
         return convertView;
     }
@@ -98,8 +82,19 @@ public class CalendarAdapter extends BaseAdapter {
 
     //Get display month
     public String getTitle(){
-        SimpleDateFormat format = new SimpleDateFormat("yyyy.MM", Locale.US);
-        return format.format(mDateManager.mCalendar.getTime());
+        SimpleDateFormat simpleform = new SimpleDateFormat("yyyy년 MM월", Locale.US);
+        return simpleform.format(mDateManager.calendar.getTime());
+    }
+
+    // 년 월을 토스트 메세지로 나타내기 위한 메소드
+    public String toast_show_year_month(){
+        SimpleDateFormat simpleform = new SimpleDateFormat("yyyy.M", Locale.US);
+        return simpleform.format(mDateManager.calendar.getTime());
+    }
+
+    public String toast_show_day(){
+        SimpleDateFormat simpleform = new SimpleDateFormat(".d", Locale.US);
+        return simpleform.format(mDateManager.calendar.DAY_OF_MONTH);
     }
 
     //Next month display
